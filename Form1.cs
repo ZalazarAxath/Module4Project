@@ -31,13 +31,14 @@ namespace Module4Project
 
             hieghtInFeet = Convert.ToDouble(textBox1.Text);
             //Decide what the outcome is using a nested decision
-            if (hieghtInFeet <= SIZE_TWO)
-                if (hieghtInFeet >= SIZE_ONE)
-                    finalPrice = PRICE_TWO;
-                else if (hieghtInFeet > SIZE_TWO)
-                    finalPrice = PRICE_THREE;
-                else if (hieghtInFeet < SIZE_ONE)
-                        finalPrice = PRICE_ONE;
+            if (hieghtInFeet < SIZE_ONE)
+                finalPrice = PRICE_ONE;
+
+                else if (hieghtInFeet >= SIZE_ONE)
+                    if (hieghtInFeet <= SIZE_TWO)
+                        finalPrice = PRICE_TWO;
+
+                else finalPrice = PRICE_THREE;
                 
             //Display the output
             label2.Text = $"It will cost ${finalPrice} for a sign that is {hieghtInFeet} feet long.";
